@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>About Science Park | Outdoor Science Learning for Schools</title>
+  <meta name="description" content="Learn about Science Park, an outdoor science learning concept for schools using play-way science gadgets and practical experiments." />
+  <meta name="keywords" content="about science park, school science park, outdoor science gadgets, play-way learning, science education, STEM learning" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #256bb5;
+      --primary-dark: #0d1b3e;
+      --green: #2d8c4e;
+      --yellow: #f4a920;
+      --orange: #e8751a;
+      --light-blue: #e8f2fb;
+      --light-green: #e6f7ee;
+      --light-yellow: #fff7e6;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --dark: #1f2937;
+      --border: #e5e7eb;
+      --shadow: 0 18px 45px rgba(13, 27, 62, 0.12);
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+      padding: 12px 0;
+    }
+
+    .navbar-brand {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-brand i {
+      color: var(--primary);
+    }
+
+    .navbar-brand span {
+      color: var(--green);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--dark);
+      margin: 0 5px;
+      padding: 9px 14px !important;
+      border-radius: 30px;
+      transition: 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--light-blue);
+      color: var(--primary);
+    }
+
+    .quote-btn {
+      background: var(--yellow);
+      color: white !important;
+      padding: 10px 22px !important;
+      border-radius: 30px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(244, 169, 32, 0.35);
+    }
+
+    .quote-btn:hover {
+      background: #df9817;
+      transform: translateY(-2px);
+    }
+
+    /* Page Hero */
+    .about-hero {
+      min-height: 72vh;
+      padding-top: 110px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(37, 107, 181, 0.13), transparent 30%),
+        radial-gradient(circle at 85% 70%, rgba(45, 140, 78, 0.14), transparent 35%),
+        linear-gradient(135deg, #f0f7ff 0%, #ffffff 50%, #fff7e6 100%);
+    }
+
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(244, 169, 32, 0.13);
+      right: -120px;
+      top: -100px;
+    }
+
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(37, 107, 181, 0.10);
+      left: -80px;
+      bottom: -70px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 40px;
+      box-shadow: 0 8px 28px rgba(37, 107, 181, 0.12);
+      margin-bottom: 20px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(42px, 6vw, 66px);
+      font-weight: 900;
+      color: var(--primary-dark);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .about-hero h1 span {
+      color: var(--green);
+    }
+
+    .about-hero p {
+      max-width: 650px;
+      color: var(--gray);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-main {
+      background: var(--primary);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s ease;
+      box-shadow: 0 12px 28px rgba(37, 107, 181, 0.28);
+    }
+
+    .btn-main:hover {
+      background: #1e5a9e;
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    .btn-light-custom {
+      background: white;
+      color: var(--primary);
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      border: 2px solid var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s ease;
+    }
+
+    .btn-light-custom:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    .hero-image-box {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-main-image {
+      border-radius: 34px;
+      min-height: 430px;
+      background-image:
+        linear-gradient(rgba(13, 27, 62, 0.08), rgba(13, 27, 62, 0.18)),
+        url("https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-float-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 18px;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .image-float-card i {
+      color: var(--green);
+      font-size: 24px;
+    }
+
+    .float-1 {
+      top: 28px;
+      left: -25px;
+    }
+
+    .float-2 {
+      right: -18px;
+      bottom: 32px;
+    }
+
+    /* Common Sections */
+    section {
+      padding: 85px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--light-green);
+      color: var(--green);
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.7px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--gray);
+      max-width: 720px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    /* About Detail */
+    .about-detail {
+      background: white;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: 0 10px 30px rgba(13, 27, 62, 0.06);
+      height: 100%;
+      transition: 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: rgba(37, 107, 181, 0.25);
+    }
+
+    .info-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+      background: var(--light-blue);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .info-card p {
+      color: var(--gray);
+      margin-bottom: 0;
+    }
+
+    /* Learning Section */
+    .learning-section {
+      background: #f9fafb;
+      position: relative;
+    }
+
+    .learning-box {
+      background: white;
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .learning-image {
+      min-height: 430px;
+      border-radius: 28px;
+      background-image:
+        linear-gradient(rgba(13, 27, 62, 0.12), rgba(13, 27, 62, 0.25)),
+        url("https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=900&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .learning-image::after {
+      content: "Science Through Experience";
+      position: absolute;
+      left: 25px;
+      bottom: 25px;
+      background: white;
+      color: var(--primary-dark);
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 16px;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .check-list i {
+      color: var(--green);
+      font-size: 20px;
+      margin-top: 3px;
+    }
+
+    /* Branches */
+    .branches-section {
+      background: white;
+    }
+
+    .branch-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px 18px;
+      text-align: center;
+      height: 100%;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .branch-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37,107,181,0.06), rgba(45,140,78,0.06));
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .branch-card:hover::before {
+      opacity: 1;
+    }
+
+    .branch-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+    }
+
+    .branch-card i {
+      position: relative;
+      font-size: 34px;
+      color: var(--primary);
+      margin-bottom: 14px;
+      transition: 0.3s ease;
+    }
+
+    .branch-card:hover i {
+      color: var(--yellow);
+      transform: scale(1.18);
+    }
+
+    .branch-card h4 {
+      position: relative;
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    /* Mission Vision */
+    .mission-section {
+      background:
+        radial-gradient(circle at top left, rgba(37,107,181,0.10), transparent 35%),
+        linear-gradient(135deg, #0d1b3e, #17406f);
+      color: white;
+    }
+
+    .mission-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 26px;
+      padding: 35px;
+      height: 100%;
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.14);
+    }
+
+    .mission-card i {
+      font-size: 42px;
+      color: var(--yellow);
+      margin-bottom: 18px;
+    }
+
+    .mission-card h3 {
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .mission-card p {
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 0;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--light-yellow);
+      padding: 70px 0;
+    }
+
+    .cta-box {
+      background: white;
+      border-radius: 34px;
+      padding: 45px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(244, 169, 32, 0.16);
+      top: -90px;
+      left: -70px;
+    }
+
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(37, 107, 181, 0.12);
+      bottom: -80px;
+      right: -60px;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-box h2 {
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .cta-box p {
+      color: var(--gray);
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 35px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 8px 0 0;
+      color: rgba(255,255,255,0.68);
+    }
+
+    /* Animation */
+    .fade-up {
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .about-hero {
+        padding: 125px 0 70px;
+        text-align: center;
+      }
+
+      .about-hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image-box {
+        margin-top: 45px;
+      }
+
+      .float-1 {
+        left: 15px;
+      }
+
+      .float-2 {
+        right: 15px;
+      }
+
+      .learning-box {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      section {
+        padding: 65px 0;
+      }
+
+      .about-hero h1 {
+        font-size: 38px;
+      }
+
+      .about-hero p {
+        font-size: 16px;
+      }
+
+      .hero-main-image,
+      .learning-image {
+        min-height: 300px;
+      }
+
+      .image-float-card {
+        position: static;
+        margin: 14px;
+        justify-content: center;
+      }
+
+      .cta-box {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-atom"></i>
+        Science <span>Park</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="Products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="nav-link quote-btn" href="contact.html">Get Quote</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-content fade-up">
+          <div class="page-badge">
+            <i class="fa-solid fa-graduation-cap"></i>
+            About Science Park
+          </div>
+
+          <h1>
+            Learn Science Through <span>Play, Practice & Discovery</span>
+          </h1>
+
+          <p>
+            Science Park is an innovative outdoor learning concept where students understand science
+            through open-air educational gadgets, real demonstrations, and interactive play-way methods.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="gadgets.html" class="btn-main">
+              Explore Science Gadgets <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn-light-custom">
+              Request Information <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 hero-image-box fade-up">
+          <div class="https://scontent.fnag1-7.fna.fbcdn.net/v/t39.30808-6/487846036_24091329040472911_6301534945563306355_n.jpg?stp=dst-jpg_tt6&cstp=mx920x643&ctp=s920x643&_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=Y8QqKy6kOl0Q7kNvwEMZ2T-&_nc_oc=AdrU0GnMI2mtaSzfbRQeV1gbCP4sEM_syiR4GGAY1SyXe5ZtmKxWunMXZVxTQ0kJcGkJ3YIaHU_PF6QdfvoVMaGf&_nc_zt=23&_nc_ht=scontent.fnag1-7.fna&_nc_gid=KYvHxg4i03AkzKi4jbK1_g&_nc_ss=7b289&oh=00_Af_dOnp8R_qamJ3VzJcbi4B6I4ZSmCnEJqPndixhWcvadQ&oe=6A42C481">
+            <div class="image-float-card float-1">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span>Practical Learning</span>
+            </div>
+
+            <div class="image-float-card float-2">
+              <i class="fa-solid fa-children"></i>
+              <span>Play-Way Education</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is Science Park -->
+  <section class="about-detail">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">What is Science Park?</h2>
+        <p class="section-subtitle">
+          A Science Park is a cluster of open-air science gadgets designed to make science learning
+          simple, practical, enjoyable, and memorable for school students.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-child-reaching"></i>
+            </div>
+            <h3>Play-Way Learning</h3>
+            <p>
+              Children naturally learn better while playing. Science Park uses this idea to teach
+              important scientific principles through hands-on activities.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-flask-vial"></i>
+            </div>
+            <h3>Practical Science</h3>
+            <p>
+              Instead of only reading concepts, students observe, touch, operate, and experience
+              science models in a real environment.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3>Scientific Temper</h3>
+            <p>
+              These gadgets help students develop curiosity, observation power, logical thinking,
+              questioning ability, and scientific understanding.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Method -->
+  <section class="learning-section">
+    <div class="container">
+      <div class="learning-box">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="learning-image"></div>
+          </div>
+
+          <div class="col-lg-6">
+            <span class="section-tag">Learning Method</span>
+            <h2 class="section-title">Why Schools Need a Science Park</h2>
+            <p>
+              A Science Park inside the school campus creates a permanent outdoor science laboratory.
+              It allows students to connect classroom theory with practical demonstrations.
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Helps students understand difficult science concepts easily.
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Encourages group activity, discussion, and experimental learning.
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Makes the school campus more educational, attractive, and interactive.
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Suitable for science exhibitions, daily learning, and activity-based education.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Science Branches -->
+  <section class="branches-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Science Coverage</span>
+        <h2 class="section-title">Branches Covered in Science Park</h2>
+        <p class="section-subtitle">
+          Science Park gadgets are designed to cover multiple branches of science through practical models.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-gears"></i>
+            <h4>Mechanics</h4>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-volume-high"></i>
+            <h4>Sound</h4>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-lightbulb"></i>
+            <h4>Light</h4>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-temperature-high"></i>
+            <h4>Heat</h4>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-flask"></i>
+            <h4>Chemistry</h4>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-dna"></i>
+            <h4>Biology</h4>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <h4>Meteorology</h4>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="branch-card">
+            <i class="fa-solid fa-microscope"></i>
+            <h4>Applied Sciences</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Vision -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="background:rgba(255,255,255,0.14);color:#fff;">Our Purpose</span>
+        <h2 class="section-title" style="color:white;">Our Mission & Vision</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.72);">
+          To make science education more practical, engaging, and accessible for every student.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="mission-card">
+            <i class="fa-solid fa-bullseye"></i>
+            <h3>Our Mission</h3>
+            <p>
+              To provide schools with practical science learning environments where students can learn
+              scientific principles through observation, experimentation, and play-based activities.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mission-card">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Our Vision</h3>
+            <p>
+              To transform school campuses into interactive science spaces that inspire curiosity,
+              creativity, innovation, and scientific thinking among students.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-content">
+          <h2>Want to Set Up a Science Park in Your School?</h2>
+          <p>
+            Create an outdoor science learning area where students can understand science concepts
+            through real models, practical demonstrations, and interactive activities.
+          </p>
+
+          <a href="contact.html" class="btn-main">
+            Get a Free Consultation <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h3>Science <span style="color:#2d8c4e;">Park</span></h3>
+      <p>Outdoor science learning gadgets for schools and educational institutions.</p>
+      <p>© 2026 Science Park. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

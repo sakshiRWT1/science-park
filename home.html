@@ -1,0 +1,382 @@
+<!-- Bootstrap & Font Awesome CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+  :root {
+    --blue-deep: #0d1b3e;
+    --blue-primary: #1a4f8a;
+    --blue-medium: #256bb5;
+    --blue-light: #e8f2fb;
+    --green-primary: #2d8c4e;
+    --yellow-accent: #f4a920;
+    --gray-800: #1f2937;
+    --shadow-md: 0 10px 28px rgba(13, 27, 62, 0.09);
+    --shadow-xl: 0 24px 58px rgba(13, 27, 62, 0.16);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* Navbar */
+  #mainNavbar {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    padding: 10px 0;
+    z-index: 1050;
+    transition: 0.3s ease;
+  }
+
+  #mainNavbar.scrolled {
+    box-shadow: var(--shadow-md);
+    padding: 7px 0;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.45rem;
+    color: var(--blue-deep);
+  }
+
+  .navbar-brand:hover {
+    color: var(--blue-primary);
+  }
+
+  .brand-icon {
+    font-size: 1.6rem;
+    color: var(--blue-medium);
+  }
+
+  .brand-text span {
+    color: var(--green-primary);
+  }
+
+  .nav-link {
+    font-weight: 600;
+    color: var(--gray-800);
+    margin: 0 4px;
+    padding: 8px 14px !important;
+    border-radius: 25px;
+    transition: 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--blue-medium);
+    background: var(--blue-light);
+  }
+
+  .btn-quote-nav {
+    background: var(--yellow-accent);
+    color: #fff !important;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 10px 22px !important;
+    box-shadow: 0 8px 22px rgba(244, 169, 32, 0.35);
+    transition: 0.3s ease;
+  }
+
+  .btn-quote-nav:hover {
+    background: #e89a10;
+    transform: translateY(-2px);
+  }
+
+  .navbar-toggler {
+    border: none;
+    box-shadow: none !important;
+  }
+
+  /* Footer */
+  .footer-section {
+    background: var(--blue-deep);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 60px 0 0;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 14px;
+  }
+
+  .footer-logo:hover {
+    color: var(--yellow-accent);
+  }
+
+  .footer-logo i {
+    color: var(--yellow-accent);
+  }
+
+  .footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .social-links a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  .social-links a:hover {
+    background: var(--yellow-accent);
+    transform: translateY(-4px);
+    color: #fff;
+  }
+
+  .footer-section h5 {
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .footer-links,
+  .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--yellow-accent);
+    padding-left: 6px;
+  }
+
+  .footer-contact li {
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-contact i {
+    color: var(--yellow-accent);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .footer-divider {
+    border-color: rgba(255, 255, 255, 0.15);
+    margin: 30px 0 16px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--blue-medium);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: 0.3s ease;
+    box-shadow: 0 8px 22px rgba(37, 107, 181, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 18px;
+      padding: 16px;
+      margin-top: 10px;
+      box-shadow: var(--shadow-xl);
+    }
+  }
+</style>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="fas fa-atom brand-icon"></i>
+      <span class="brand-text">Science <span>Park</span></span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="benefits.html">Benefits</a></li>
+        <li class="nav-item"><a class="nav-link" href="project-execution.html">Project Execution</a></li>
+        <li class="nav-item"><a class="nav-link" href="safety.html">Safety</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <a href="contact.html" class="btn btn-quote-nav">
+            Get Quote <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content Starts Here -->
+<main style="padding-top: 100px;">
+  <!-- Add your page content here -->
+</main>
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <i class="fas fa-atom"></i>
+            Science Park
+          </a>
+          <p>
+            Outdoor science learning gadgets for schools and educational institutions.
+            Learn science through play-based practical models.
+          </p>
+
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h5>Products</h5>
+        <ul class="footer-links">
+          <li><a href="products.html">Science Gadgets</a></li>
+          <li><a href="products.html">Mechanics Models</a></li>
+          <li><a href="products.html">Sound & Light Models</a></li>
+          <li><a href="products.html">Biology Models</a></li>
+          <li><a href="products.html">Energy Models</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h5>Contact Details</h5>
+        <ul class="footer-contact">
+          <li><i class="fas fa-phone"></i> +91 XXXXX XXXXX</li>
+          <li><i class="fas fa-envelope"></i> info@example.com</li>
+          <li><i class="fas fa-location-dot"></i> Your City, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <p>© 2026 Science Park. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back To Top Button -->
+<button class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const navbar = document.getElementById("mainNavbar");
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+    backToTop.classList.toggle("show", window.scrollY > 350);
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
